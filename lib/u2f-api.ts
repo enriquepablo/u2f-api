@@ -210,8 +210,9 @@ export function sign(
 
 			const appId = signRequests[ 0 ].appId;
 			const challenge = signRequests[ 0 ].challenge;
-
-			u2f.sign( appId, challenge, signRequests, callback, timeout );
+			const registeredKeys = signRequests[ 0 ].registeredKeys;
+			
+			u2f.sign( appId, challenge, registeredKeys, callback, timeout );
 		} );
 	} );
 }
