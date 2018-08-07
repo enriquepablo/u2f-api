@@ -130,7 +130,8 @@ function sign(signRequests, timeout) {
             }
             var appId = signRequests[0].appId;
             var challenge = signRequests[0].challenge;
-            u2f.sign(appId, challenge, signRequests, callback, timeout);
+            var registeredKeys = signRequests[ 0 ].registeredKeys;
+            u2f.sign(appId, challenge, registeredKeys, callback, timeout);
         });
     });
 }
